@@ -6,7 +6,14 @@ const {
 module.exports = withModuleFederationPlugin({
   name: "lego_module",
 
-  exposes: {},
+  exposes: {
+    ButtonComponent: "./src/app/components/button/button.component.ts",
+    InputComponent: "./src/app/components/input/input.component.ts",
+    ModalClientDataComponent:
+      "./src/app/components/modal-client-data/modal-client-data.component.ts",
+    CardClientComponent:
+      "./src/app/components/card-client/card-client.component.ts",
+  },
 
   shared: {
     ...shareAll({
