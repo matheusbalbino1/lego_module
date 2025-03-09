@@ -1,0 +1,50 @@
+<div class="modal-overlay-custom" (click)="close()">
+  <div class="modal-content-custom" (click)="$event.stopPropagation()">
+    <div class="modal-header-custom">
+      <h4 class="modal-title-custom">
+        <ng-content *ngIf="type === enTypeModalClientData.EDITING">
+          Editar
+        </ng-content>
+        <ng-content *ngIf="type === enTypeModalClientData.CREATING">
+          Criar
+        </ng-content>
+        <ng-content *ngIf="type === enTypeModalClientData.DELETING">
+          Excluir
+        </ng-content>
+        cliente:
+      </h4>
+      <button type="button" (click)="close()">
+        <img src="assets/close.png" />
+      </button>
+    </div>
+    <div class="modal-body-custom">
+      <div class="container-inputs" *ngIf="showInputs()">
+        <input
+          type="text"
+          placeholder="Digite o nome:"
+          [(ngModel)]="nameModel"
+        />
+        <input
+          type="number"
+          placeholder="Digite o salário:"
+          [(ngModel)]="salaryModel"
+          min="0"
+        />
+        <input
+          type="number"
+          placeholder="Digite o valor da empresa:"
+          [(ngModel)]="companyValuationModel"
+          min="0"
+        />
+      </div>
+      <p class="text-delete" *ngIf="type === enTypeModalClientData.DELETING">
+        Você está prestes a excluir o cliente:
+        <strong>{{ clientData.name }}</strong>
+      </p>
+      <app-button
+        (click)="onSave()"
+        [buttonText]="getButtonText()"
+      ></app-button>
+    </div>
+  </div>
+</div>
