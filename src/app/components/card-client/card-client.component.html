@@ -1,0 +1,40 @@
+<div class="card-custom">
+  <p class="name">
+    <strong>{{ clientData.name }}</strong>
+  </p>
+  <p class="salary">Salário: {{ formatToCurrency(clientData.salary) }}</p>
+  <p class="valuation">
+    Empresa: {{ formatToCurrency(clientData.companyValuation) }}
+  </p>
+  <div
+    class="container-btn"
+    [ngStyle]="{
+      'justify-content': isSelectedClientPage ? 'flex-end' : ''
+    }"
+  >
+    <button
+      (click)="onClickButtons.emit(enumClickButtons.SELECT)"
+      *ngIf="!clientData?.selected"
+    >
+      <img src="assets/plus.png" />
+    </button>
+    <button
+      (click)="onClickButtons.emit(enumClickButtons.REMOVE)"
+      *ngIf="clientData?.selected"
+    >
+      <img src="assets/dash.png" />
+    </button>
+    <button
+      (click)="onClickButtons.emit(enumClickButtons.EDIT)"
+      *ngIf="!isSelectedClientPage"
+    >
+      <img src="assets/pencil.png" />
+    </button>
+    <button
+      (click)="onClickButtons.emit(enumClickButtons.DELETE)"
+      *ngIf="!isSelectedClientPage"
+    >
+      <img src="assets/trash.png" />
+    </button>
+  </div>
+</div>
