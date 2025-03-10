@@ -37,8 +37,8 @@ export class ModalClientDataComponent implements OnInit {
   public enTypeModalClientData = enTypeModalClientData;
 
   nameModel = '';
-  salaryModel: number = 0;
-  companyValuationModel: number = 0;
+  salaryModel: number = null as any;
+  companyValuationModel: number = null as any;
 
   constructor(public activeModal: NgbActiveModal) {}
 
