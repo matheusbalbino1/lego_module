@@ -4,7 +4,6 @@ import {
   enTypeModalClientData,
   ModalClientDataComponent,
 } from './modal-client-data.component';
-import { ClientService } from '../../services/client.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MessageService } from 'primeng/api';
 import { IClient } from '../../shared/models/client.model';
@@ -19,10 +18,7 @@ describe('ModalClientDataComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ModalClientDataComponent],
-      providers: [
-        ClientService,
-        { provide: NgbActiveModal, useValue: mockActiveModal },
-      ],
+      providers: [{ provide: NgbActiveModal, useValue: mockActiveModal }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ModalClientDataComponent);

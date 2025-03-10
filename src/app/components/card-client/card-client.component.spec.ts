@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardClientComponent, IKindClick } from './card-client.component';
-import { IClientSelect } from '../../pages/list-clients/list-clients.component';
+import { IClientSelect } from '../../shared/models/client.model';
 
 describe('CardClientComponent', () => {
   let component: CardClientComponent;
